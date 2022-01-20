@@ -24,8 +24,8 @@ import (
 	"sync/atomic"
 	"time"
 
+	mywebsocket "github.com/atsud0/websocket"
 	"github.com/fatedier/frp/pkg/util/xlog"
-	"golang.org/x/net/websocket"
 
 	gnet "github.com/fatedier/golib/net"
 	kcp "github.com/fatedier/kcp-go"
@@ -238,10 +238,10 @@ func DialWebsocketServer(addr string, host string) (net.Conn, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(host)
+	//fmt.Println(host)
 	origin := "http://" + uri.Host
 	//这里把host选项传进去给websocket
-	cfg, err := websocket.NewConfig(addr, origin, host)
+	cfg, err := mywebsocket.NewConfig(addr, origin, host)
 	if err != nil {
 		return nil, err
 	}
@@ -249,7 +249,7 @@ func DialWebsocketServer(addr string, host string) (net.Conn, error) {
 		Timeout: 10 * time.Second,
 	}
 
-	conn, err := websocket.DialConfig(cfg)
+	conn, err := mywebsocket.DialConfig(cfg)
 	if err != nil {
 		return nil, err
 	}
