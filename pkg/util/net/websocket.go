@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/http"
 
-	"golang.org/x/net/websocket"
+	mywebsocket "github.com/atsud0/websocket"
 )
 
 var (
@@ -33,7 +33,7 @@ func NewWebsocketListener(ln net.Listener) (wl *WebsocketListener) {
 	}
 
 	muxer := http.NewServeMux()
-	muxer.Handle(FrpWebsocketPath, websocket.Handler(func(c *websocket.Conn) {
+	muxer.Handle(FrpWebsocketPath, mywebsocket.Handler(func(c *mywebsocket.Conn) {
 		notifyCh := make(chan struct{})
 		conn := WrapCloseNotifyConn(c, func() {
 			close(notifyCh)

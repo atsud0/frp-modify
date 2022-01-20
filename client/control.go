@@ -328,11 +328,6 @@ func (ctl *Control) msgHandler() {
 		hbCheckCh = hbCheck.C
 	}
 
-	if ctl.clientCfg.Host != "" {
-		//donend
-		return
-	}
-
 	ctl.lastPong = time.Now()
 	for {
 		select {
@@ -353,12 +348,8 @@ func (ctl *Control) msgHandler() {
 				return
 			}
 		case rawMsg, ok := <-ctl.readCh:
-			if ctl.clientCfg.Host == "" && !ok {
+			if !ok {
 				return
-			} else if ctl.clientCfg.Host != "" && ok == false {
-				ok = true
-				ctl.lastPong = time.Now()
-				xl.Debug("receive heartbeat from server")
 			}
 
 			switch m := rawMsg.(type) {

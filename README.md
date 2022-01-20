@@ -2,7 +2,7 @@
 
 官方源仓库：https://github.com/fatedier/frp/
 
-属于是瞎几把乱改的。存在的问题和修改过程可以看为的修改笔记：[FRP改造笔记-Atsud0](https://atsud0.me/2022/01/20/FRP%E6%94%B9%E9%80%A0%E7%AC%94%E8%AE%B0/)
+属于是瞎几把乱改的。存在的问题和修改过程可以看我的修改笔记：[FRP改造笔记-Atsud0](https://atsud0.me/2022/01/20/FRP%E6%94%B9%E9%80%A0%E7%AC%94%E8%AE%B0/)
 
 
 参考至以下文章：
